@@ -37,16 +37,16 @@ The Syncfusion Angular Grid component supports real-time data binding using Sign
     cd SignalR.Server
     dotnet run
   ```
-- The server is now running at http://localhost:4205/.
+- The server is now running at http://localhost:5083/.
 
 **Run the client**
  
  - Execute the below commands to run the client application.
   
-  ```bash
-  cd signalr.client
-  npm start
-  ```
+    ```bash
+    cd signalr.client
+    npm start
+    ```
 - Open http://localhost:4200/ in the browser.
 
 
