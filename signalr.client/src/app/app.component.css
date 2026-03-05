@@ -1,0 +1,183 @@
+﻿:host {
+    max-width: 1280px;
+    padding: 2rem;
+    text-align: center;
+}
+
+th, td {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+table {
+    margin: 0 auto;
+}
+
+.control-section{
+  margin-top: 100px;
+}
+
+.inventory-grid{
+  margin-top: 30px;
+}
+
+/* Root scope for this grid only */
+.inventory-grid .e-gridheader .e-headercell .e-headercelldiv {
+  padding: 8px 10px;
+ 
+}
+
+.inventory-grid .hdr {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  letter-spacing: .2px;
+}
+
+.inventory-grid .hdr-icon {
+  font-size: 18px;
+  opacity: .75;
+  line-height: 1;
+}
+
+/* Monospace labels */
+.inventory-grid .mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  letter-spacing: .3px;
+}
+
+.inventory-grid .id-pill {
+  background: color-mix(in oklab, var(--bs-primary, #0d6efd) 14%, transparent);
+  color: color-mix(in oklab, var(--bs-white, #2151ff) 85%, var(--bs-danger, #dc3545) 15%);
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 12.5px;
+}
+
+.inventory-grid .name-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.inventory-grid .name-text {
+  font-weight: 500;
+}
+
+.inventory-grid .badge {
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 8px;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.inventory-grid .badge.danger {
+  background: color-mix(in oklab, var(--bs-danger, #dc3545) 8%, var(--bs-light, #f8f9fa) 92%);
+  color: var(--bs-danger);
+  border: 1px solid color-mix(in oklab, var(--bs-danger, #dc3545) 12%, transparent);
+}
+
+.inventory-grid .chip {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 10px;
+  background: var(--bs-light, #f8f9fa);
+  color: var(--bs-body-color, #111827);
+  font-size: 12.5px;
+  border: 1px solid color-mix(in oklab, var(--bs-dark, #000) 8%, transparent);
+}
+
+.inventory-grid .qty {
+  font-variant-numeric: tabular-nums;
+  padding: 2px 0;
+}
+.inventory-grid .qty.ok {
+  color: var(--bs-success);
+  font-weight: 600;
+}
+.inventory-grid .qty.warn {
+  color: var(--bs-danger);
+  font-weight: 700;
+}
+
+.inventory-grid .reorder-note {
+  margin-left: 6px;
+  color: var(--bs-secondary);
+  font-size: 11.5px;
+}
+
+.inventory-grid .price {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.inventory-grid .location {
+  background: color-mix(in oklab, var(--bs-primary, #0d6efd) 8%, var(--bs-light, #f8f9fa) 92%);
+  color: var(--bs-primary);
+  padding: 2px 6px;
+  border-radius: 6px;
+  border: 1px dashed color-mix(in oklab, var(--bs-primary, #0d6efd) 18%, transparent);
+  letter-spacing: .5px;
+}
+
+/* Supplier chip with initials avatar */
+.inventory-grid .supplier {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+.inventory-grid .supplier .avatar {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: inline-grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--bs-primary, #0d6efd), var(--bs-info, #0dcaf0));
+  color: var(--bs-white, #fff);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .5px;
+}
+.inventory-grid .supplier .supplier-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 170px;
+}
+
+/* Reorder Level */
+.inventory-grid .reorder {
+  font-variant-numeric: tabular-nums;
+  color: var(--bs-body-color);
+}
+
+/* Light/Dark theming harmony */
+@media (prefers-color-scheme: dark) {
+  .inventory-grid .badge.danger {
+    background: color-mix(in oklab, var(--bs-danger) 10%, var(--bs-dark, #000) 90%);
+    color: color-mix(in oklab, var(--bs-light, #f8f9fa) 92%, var(--bs-danger) 8%);
+    border-color: color-mix(in oklab, var(--bs-danger) 18%, transparent);
+  }
+  .inventory-grid .chip {
+    background: var(--bs-primary);
+    color: var(--bs-light);
+    border-color: color-mix(in oklab, var(--bs-dark) 14%, transparent);
+  }
+  .inventory-grid .location {
+    background: color-mix(in oklab, var(--bs-primary) 6%, var(--bs-dark) 94%);
+    color: color-mix(in oklab, var(--bs-primary) 50%, var(--bs-light) 50%);
+    border-color: color-mix(in oklab, var(--bs-primary) 20%, var(--bs-dark) 80%);
+  }
+  .inventory-grid .reorder-note {
+    color: color-mix(in oklab, var(--bs-secondary) 60%, var(--bs-light) 40%);
+  }
+}
+
+/* Tighten row height slightly for a denser look (optional) */
+.inventory-grid .e-rowcell {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}

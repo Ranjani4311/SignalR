@@ -1,0 +1,88 @@
+﻿<ejs-grid
+  #grid
+  [dataSource]="inventoryData"
+  (actionComplete)="actionComplete($event)"
+  (created)="created()"
+  [editSettings]="editSettings"
+  [toolbar]="toolbar"
+  allowPaging="true"
+  [pageSettings]="pageSettings"
+  cssClass="inventory-grid"
+>
+  <e-columns>
+    <!-- Item ID -->
+    <e-column field="ItemId" headerText="Item ID" isPrimaryKey="true" width="140" textAlign="Right" [validationRules]="ItemIdRules">
+      <ng-template #template let-data>
+        <span class="mono id-pill">{{ data.ItemId }}</span>
+      </ng-template>
+    </e-column>
+
+    <!-- Item Name -->
+    <e-column field="ItemName" headerText="Item Name" width="220" clipMode="EllipsisWithTooltip" [validationRules]="ItemNameRules">
+      <ng-template #template let-data>
+        <div class="name-cell">
+          <span class="name-text" [title]="data.ItemName">{{ data.ItemName }}</span>
+          <span *ngIf="data.ReorderLevel !== null && data.Quantity <= data.ReorderLevel" class="badge danger"
+            title="Below reorder level"
+          >LOW</span>
+        </div>
+      </ng-template>
+    </e-column>
+
+    <!-- Category -->
+    <e-column field="Category" headerText="Category" width="160" textAlign="Center" [validationRules]="CategoryRules">
+      <ng-template #template let-data>
+        <span class="chip">{{ data.Category || '—' }}</span>
+      </ng-template>
+    </e-column>
+
+    <!-- Quantity -->
+    <e-column field="Quantity" headerText="Quantity" width="140" textAlign="Right" [validationRules]="QuantityRules">
+      <ng-template #template let-data>
+        <span
+          class="qty"
+          [class.warn]="data.ReorderLevel !== null && data.Quantity <= data.ReorderLevel"
+          [class.ok]="data.ReorderLevel !== null && data.Quantity > data.ReorderLevel"
+          >{{ data.Quantity | number: '1.0-0' }}</span
+        >
+      </ng-template>
+    </e-column>
+
+    <!-- Unit Price -->
+    <e-column field="UnitPrice" headerText="Unit Price" width="150" textAlign="Right" format="C2" [validationRules]="UnitPriceRules">
+      <ng-template #template let-data>
+        <span class="price"
+          >{{ data.UnitPrice | currency: currencyCode || 'USD' : 'symbol' : '1.2-2' }}</span
+        >
+      </ng-template>
+    </e-column>
+
+    <!-- Location Code -->
+    <e-column field="LocationCode" headerText="Location Code" width="170" textAlign="Center" [validationRules]="LocationCodeRules">
+      <ng-template #template let-data>
+        <span class="mono location"
+          >{{ (data.LocationCode || '').toString().toUpperCase() || '—' }}</span
+        >
+      </ng-template>
+    </e-column>
+
+    <!-- Supplier Name -->
+    <e-column field="SupplierName" headerText="Supplier Name" width="150" clipMode="EllipsisWithTooltip"  textAlign="Left" [validationRules]="SupplierNameRules">
+      <ng-template #template let-data>
+        <div class="supplier">
+          <span class="avatar">{{ supplierInitials(data?.SupplierName) }}</span>
+          <span class="supplier-name" [title]="data?.SupplierName">{{ data?.SupplierName || '—' }}</span>
+        </div>
+      </ng-template>
+    </e-column>
+
+    <!-- Reorder Level -->
+    <e-column field="ReorderLevel" headerText="Reorder Level" width="160" textAlign="Right" [validationRules]="ReorderLevelRules">
+      <ng-template #template let-data>
+        <span class="reorder"
+          >{{ data.ReorderLevel !== null && data.ReorderLevel !== undefined ? (data.ReorderLevel | number:'1.0-0') : '—' }}</span
+        >
+      </ng-template>
+    </e-column>
+  </e-columns>
+</ejs-grid>
