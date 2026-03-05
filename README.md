@@ -19,7 +19,6 @@ The Syncfusion Angular Grid component supports real-time data binding using Sign
 | Angular CLI                 | 18.x or later                | Create and manage Angular apps |
 
 
-
 ## Quick Start
 
 1. **Clone the repository**
@@ -72,7 +71,7 @@ The Syncfusion Angular Grid component supports real-time data binding using Sign
 
 ### Add a Record
 1. Click **Add** in the grid toolbar
-2. Fill out fields (productName, productId, category, rating, etc.)
+2. Fill out fields (itemId, category, supplierName, etc.)
 3. Click **Save** to create the record
 
 ### Edit a Record
